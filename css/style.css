@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #090f17;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    background: url('./../images/bg_bot_big.png');
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.moon-phase-display{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#moon-phase-name{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#selected-date{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.calendar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    z-index: 9999;
+}
+
+header{
+    background-color: #053543;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-bottom:3px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+header .indicator{
+    background-color: #958e8e9e; 
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    outline:none;
+    cursor: pointer;
+}
+
+header .indicator .fa{
+    color: #fff;
+    font-size: 16px;
+}
+
+#calendar-grid{
+    display: grid;
+    grid-template-columns: repeat(7 , 50px);
+    gap: 3px;
+}
+
+#calendar-grid div{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(9, 30, 55, 0.926);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+#calendar-grid div:hover{
+    background-color: #958e8e9e; 
+}
+
+.selected{
+    background-color: #8b8b8cf2 !important;
+}
+
+.moving-clouds{
+    background: url('./../images/clouds.png');
+    position: absolute;
+    top: 10px;
+    width: 250em;
+    height: 80em;
+    animation: cloudLoop 50s linear infinite;
+    overflow-x: hidden;
+}
+
+
+
+#moon-image {
+    transition: all 3s;
+}
+
+@keyframes cloudLoop {
+    0% {
+        transform: translate3D(0, 0 , 0);
+    }
+    100% {
+        transform: translate3D(-50%, 0 , 0);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #calendar-grid{
+        grid-template-columns: repeat(7 , 40px);
+    }
+    
+    #calendar-grid div{
+        width: 40px;
+        height: 40px;
+    }
+}
